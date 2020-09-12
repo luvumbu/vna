@@ -8,7 +8,7 @@ var section = new Vue({
 			this.ajax("selector0","class/php/add_data.php"); 
 		} , 
 		click_folder:function(){
-			this.ajax("selector0","class/php/add_folder.php"); 
+			this.ajax("selector0","class/php/select_list.php"); 
 		} , 
 		ajax: function(id,source) {
 			var xhttp = new XMLHttpRequest();
