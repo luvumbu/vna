@@ -37,6 +37,8 @@ session_start();
 	?>
 
 	<style>
+
+
 		:root {
   --bodycolor: #332e71;
 }
@@ -88,7 +90,7 @@ session_start();
 		}
 
 		.valider {
-			background-color:  var(--bodycolor);;
+			background-color:  var(--bodycolor);
 			text-align: center;
 			width: 30%;
 			transition: 1s all;
@@ -98,12 +100,30 @@ session_start();
 			border: 1px solid #499c81;
 			margin-left: 2.5%;
 		}
+		.add_folder  {
+			border: 1px solid var(--bodycolor);
+			width: 60%;
+			margin: auto;
+			margin-top: 20px;
+			text-align: center;
+			color: var(--bodycolor);
+			transition:0.5s all; 
+		 
+		}
+		.add_folder:hover  {
+			border: 1px solid var(--bodycolor);
+ 			color: white;
+			background-color: var(--bodycolor);
+		  transition:1s all; 
+			cursor: pointer;
+		}
 
 		.valider:hover {
 			cursor: pointer;
 			background-color: #499c81;
 			border: 1px solid  var(--bodycolor);;
 			transition: 1s all;
+			cursor: pointer;
 		}
 
 		.select2 div {

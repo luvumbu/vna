@@ -34,7 +34,13 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo $row["nom_datas"];
+    ?>    
+<div id="<?php echo $row["id_datas"]?>" class="add_folder <?php echo $row["id_datas"]?>">
+
+<?php echo $row["nom_datas"]?>
+
+</div>
+    <?php 
   }
 } else {
   echo "0 results";
