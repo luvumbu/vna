@@ -190,6 +190,3 @@ if(verif_2_final==true){
 
 
 
-
-
-

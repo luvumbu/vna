@@ -1,5 +1,7 @@
 <?php
-$REMOTE_ADDR =   $_SERVER['REMOTE_ADDR'];
+session_start();
+$REMOTE_ADDR =   $_SERVER['REMOTE_ADDR']; 
+$id =  $_SESSION["id"];
 if ($REMOTE_ADDR == "localhost" || $REMOTE_ADDR == "127.0.0.1" || $REMOTE_ADDR=="::1" ) {
  
 	
@@ -28,7 +30,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = 'SELECT * FROM `datas`   LIMIT 7';
+$sql = 'SELECT * FROM `datas`   LIMIT '.$id.',7 ';
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -100,12 +102,27 @@ for($i = 0 ;$i<$result;$i++){
  
   if($i!=0){
 
+
+
+    if($i ==$id){
+      ?>
+      <b  class="power_on" onclick='link_pages(this)' id="<?php echo $i ?>">  <?php echo  $i ?></b>
+      <?php 
+    }
+    else{
+
+  
     ?>
 
  <b onclick='link_pages(this)' id="<?php echo $i ?>">  <?php echo  $i ?></b>
     <?php 
-
+  }
   }
 }
  ?>
  </div>
+
+
+ 
+ 
+ 

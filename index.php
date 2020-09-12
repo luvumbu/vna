@@ -1,7 +1,5 @@
 <?php
 session_start();
- 
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -37,11 +35,10 @@ session_start();
 	?>
 
 	<style>
-
-
 		:root {
-  --bodycolor: #332e71;
-}
+			--bodycolor: #332e71;
+		}
+
 		.options,
 		.options2 {
 			display: flex;
@@ -50,9 +47,11 @@ session_start();
 			justify-content: space-around;
 			border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 		}
-.display_none{
-	display: none;
-}
+
+		.display_none {
+			display: none;
+		}
+
 		.options2 {
 			border-bottom: 1px solid rgba(0, 0, 0, 0);
 			margin-top: 100px;
@@ -73,8 +72,8 @@ session_start();
 
 		.fa-folder-plus:hover,
 		.fa-folder:hover,
-		.fa-search:hover ,
-		.fa-plus-circle:hover{
+		.fa-search:hover,
+		.fa-plus-circle:hover {
 			cursor: pointer;
 		}
 
@@ -90,7 +89,7 @@ session_start();
 		}
 
 		.valider {
-			background-color:  var(--bodycolor);
+			background-color: var(--bodycolor);
 			text-align: center;
 			width: 30%;
 			transition: 1s all;
@@ -100,28 +99,51 @@ session_start();
 			border: 1px solid #499c81;
 			margin-left: 2.5%;
 		}
-		.add_folder  {
+
+		.pages {
+			width: 60%;
+			margin: auto;
+			margin-top: 25px;
+		}
+
+		.pages b {
+			padding: 10px;
+			margin-right: 2px;
+			border: 1px solid var(--bodycolor);
+			transition: 1.5s all;
+		}
+
+		.pages b:hover {
+			cursor: pointer;
+			background-color: var(--bodycolor);
+			color: white;
+			transition: 0.5s all;
+		}
+
+		.add_folder {
 			border: 1px solid var(--bodycolor);
 			width: 60%;
 			margin: auto;
 			margin-top: 20px;
 			text-align: center;
 			color: var(--bodycolor);
-			transition:0.5s all; 
-		 
+			transition: 0.5s all;
+
 		}
-		.add_folder:hover  {
+
+		.add_folder:hover {
 			border: 1px solid var(--bodycolor);
- 			color: white;
+			color: white;
 			background-color: var(--bodycolor);
-		  transition:1s all; 
+			transition: 1s all;
 			cursor: pointer;
 		}
 
 		.valider:hover {
 			cursor: pointer;
 			background-color: #499c81;
-			border: 1px solid  var(--bodycolor);;
+			border: 1px solid var(--bodycolor);
+			;
 			transition: 1s all;
 			cursor: pointer;
 		}
@@ -130,8 +152,8 @@ session_start();
 
 			padding: 15px;
 			color: white;
-			border: 2px solid  var(--bodycolor);
-			color:  var(--bodycolor);
+			border: 2px solid var(--bodycolor);
+			color: var(--bodycolor);
 			transition: 2s all;
 		}
 
@@ -139,60 +161,51 @@ session_start();
 
 			padding: 15px;
 			color: white;
-			background-color:  var(--bodycolor);
-			color:  var(--bodycolor);
+			background-color: var(--bodycolor);
+			color: var(--bodycolor);
 			transition: 0.5s all;
 			color: white;
 			cursor: pointer;
 		}
-
- 
- .nom_datas{
-	 cursor: pointer;
-	 text-align: center;
-	 margin-top: 50px;
-	 
- }
+		.nom_datas {
+			cursor: pointer;
+			text-align: center;
+			margin-top: 50px;
+		}
 		body,
 		input,
 		::placeholder {
 			color: #332e71;
 		}
-
 		input {
 			border: 1px solid #332e71;
 			padding: 15px;
 			margin: 4px;
 		}
-
 		#recherche {
 			border: 1px solid rgba(0, 0, 0, 0.2);
 		}
-.fa-plus-circle:hover{
-	cursor: pointer;
-}
+		.fa-plus-circle:hover {
+			cursor: pointer;
+		}
 		@media screen and (max-width: 1280px) {
 
 			.options,
 			.options2 {
 				width: 100%;
 			}
-
 			.liste_produit_nom div {
-				border: 2px solid  var(--bodycolor);
+				border: 2px solid var(--bodycolor);
 				width: 70%;
 				margin: auto;
-				margin-top:50px;
+				margin-top: 50px;
 			}
-
 			.liste_produit_nom {
 				font-size: 1.2em;
 			}
-
 			.inputs input {
 				width: 90%;
 			}
-
 			.options2 {
 
 				margin-top: 50px;
@@ -200,6 +213,53 @@ session_start();
 			}
 		}
 	</style>
+
+
+	<script>
+		function link_pages(_this) {
+
+
+
+			var link_pages = new Information("class/php/link_page_recup.php"); // création de la classe 
+			link_pages.add("id", _this.id); // ajout de l'information pour lenvoi 
+			console.log(link_pages.info()); // demande l'information dans le tableau
+			link_pages.push(); // envoie l'information au code pkp 
+
+			setTimeout(function() {
+
+				ajax("selector0", "class/php/select_list_click.php");
+				console.log("ok");
+
+			}, 400);
+
+			// doc 
+
+		}
+
+
+		function ajax(id, source) {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById(id).innerHTML =
+						this.responseText;
+				}
+			};
+			xhttp.open("GET", source, true);
+			xhttp.send();
+		}
+
+ 
+	</script>
+
+
+<style>
+	.power_on{
+		background-color: var(--bodycolor);
+		padding: 30px;
+		color:white; 
+	}
+</style>
 </body>
 
 </html>
