@@ -249,6 +249,21 @@ session_start();
 			xhttp.send();
 		}
 
+
+
+		function click_select_list(_this) {
+		//	alert(_this.id) ; 
+		//document.getElementById("plus"+_this.id).className="display_none" ; 
+
+		var control = document.getElementById("plus_"+_this.id).className ; 
+		if(control=="display_none"){
+					document.getElementById("plus_"+_this.id).className="";
+		}
+		else{
+			document.getElementById("plus_"+_this.id).className="display_none";
+		}
+
+		}
  
 	</script>
 
