@@ -217,26 +217,16 @@ session_start();
 
 	<script>
 		function link_pages(_this) {
-
-
-
 			var link_pages = new Information("class/php/link_page_recup.php"); // création de la classe 
 			link_pages.add("id", _this.id); // ajout de l'information pour lenvoi 
 			console.log(link_pages.info()); // demande l'information dans le tableau
 			link_pages.push(); // envoie l'information au code pkp 
-
 			setTimeout(function() {
-
 				ajax("selector0", "class/php/select_list_click.php");
 				console.log("ok");
-
 			}, 400);
-
 			// doc 
-
 		}
-
-
 		function ajax(id, source) {
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -249,12 +239,9 @@ session_start();
 			xhttp.send();
 		}
 
-
-
 		function click_select_list(_this) {
 		//	alert(_this.id) ; 
 		//document.getElementById("plus"+_this.id).className="display_none" ; 
-
 		var control = document.getElementById("plus_"+_this.id).className ; 
 		if(control=="display_none"){
 					document.getElementById("plus_"+_this.id).className="";
@@ -262,12 +249,8 @@ session_start();
 		else{
 			document.getElementById("plus_"+_this.id).className="display_none";
 		}
-
 		}
- 
-	</script>
-
-
+ 	</script>
 <style>
 	.power_on{
 		background-color: var(--bodycolor);
